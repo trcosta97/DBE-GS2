@@ -3,11 +3,11 @@
  ## Endpoints
 
  ### Swagger
-https://fitvictoryapi-production.up.railway.app/swagger-ui/index.html  
+https://dbe-gs2-production.up.railway.app/swagger-ui/index.html  
 
 ### Register
 POST  
-https://fitvictoryapi-production.up.railway.app/auth/register   
+https://dbe-gs2-production.up.railway.app/auth/register   
 ```console
 {
   "nome": "string",
@@ -28,7 +28,7 @@ https://fitvictoryapi-production.up.railway.app/auth/register
 
 ### Login
 POST  
-https://fitvictoryapi-production.up.railway.app/auth/login     
+https://dbe-gs2-production.up.railway.app/auth/login     
 ```console
 {
   "email": "string",
@@ -38,7 +38,7 @@ https://fitvictoryapi-production.up.railway.app/auth/login
 
 ### Update User
 PUT  
-https://fitvictoryapi-production.up.railway.app/user/<IdUsuario>    
+https://dbe-gs2-production.up.railway.app/user/<IdUsuario>    
 ```console
 {
   "nome": "string",
@@ -49,17 +49,17 @@ https://fitvictoryapi-production.up.railway.app/user/<IdUsuario>
 
 ### Get User
 GET  
-https://fitvictoryapi-production.up.railway.app/user/<IdUsuario>  
+https://dbe-gs2-production.up.railway.app/user/<IdUsuario>  
 Requisição sem corpo. Retorna usuário especificado pelo ID na url.  
 
 ### Get Users
 GET  
-http://fitvictoryapi-production.up.railway.app/user?page=0&size=10    
+https://dbe-gs2-production.up.railway.app/user?page=0&size=10    
 Requisição sem corpo. Retorna lista de usuários paginados com 10 por página, ordenados por ID (ordem de cadastro).
 
 ### Check In
 PUT  
-(http://fitvictoryapi-production.up.railway.app/user/checkIn/<IdUsuario>    
+https://dbe-gs2-production.up.railway.app/user/checkIn/<IdUsuario>    
 ```console
   {
   "tipo": "ACADEMIA",
@@ -78,5 +78,5 @@ PUT
 
 ### Get Atividades por User
 GET  
-http://fitvictoryapi-production.up.railway.app/user/atividades/<IdUsuario>?page=0&size=10    
+https://dbe-gs2-production.up.railway.app/user/atividades/<IdUsuario>?page=0&size=10    
 Requisição sem corpo. Inserir o ID do usuário no local indicado no link. Retorna lista de atividades por usuário. Requisição paginada com 10 por página, ordenados por ID (ordem de cadastro).
