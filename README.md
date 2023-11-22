@@ -1,8 +1,15 @@
 ﻿# FitVictory API
 
- ## Endpoints
+## Endpoints
+Login com permissões de ADMIN:  
+```console
+{
+  "email": "admin@fitvictory.com",
+  "senha": "fVic0"
+}
+```
 
- ### Swagger
+### Swagger
 https://dbe-gs2-production.up.railway.app/swagger-ui/index.html  
 
 ### Register
