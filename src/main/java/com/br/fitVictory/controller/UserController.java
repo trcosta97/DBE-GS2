@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -43,7 +44,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ListagemUserDTO>> getAll(Pageable paginacao){
+    public ResponseEntity<Page<ListagemUserDTO>> getAll(@PageableDefault(size = 5, sort = {"nome"}) Pageable paginacao){
         return ResponseEntity.ok(service.getAll(paginacao).map(ListagemUserDTO::new));
     }
 
@@ -69,7 +70,7 @@ public class UserController {
     }
 
     @GetMapping("atividades/{id}")
-    public ResponseEntity<Page<ListagemAtividadesDTO>> getAtividades(@PathVariable Long id, Pageable pageable ){
+    public ResponseEntity<Page<ListagemAtividadesDTO>> getAtividades(@PathVariable Long id, @PageableDefault(size = 5, sort = "tipo") Pageable pageable ){
         return ResponseEntity.ok(service.getAtividades(id, pageable).map(ListagemAtividadesDTO::new));
     }
 }

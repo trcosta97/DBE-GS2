@@ -8,7 +8,10 @@ import com.br.fitVictory.repository.AtividadeRepository;
 import com.br.fitVictory.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -41,8 +44,8 @@ public class UserService {
         throw new EntidadeNaoEncontradaException("Usuário não encontrado.");
     }
 
-    public Page<User> getAll(Pageable paginacao){
-        return repository.findAll(paginacao);
+    public Page<User> getAll(Pageable pageable){
+        return repository.findAll(pageable);
     }
 
     public User update(Long id, User data){
@@ -89,7 +92,7 @@ public class UserService {
        return null;
     }
 
-    public Page<Atividade> getAtividades(Long userId, Pageable paginacao){
+    public Page<Atividade> getAtividades(Long userId, @PageableDefault(size = 2, sort = {"tipo"}) Pageable paginacao){
         Optional<User> optionalUser = repository.findById(userId);
         if (optionalUser.isPresent()){
 
